@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 수평 가운데 정렬 */
+    justify-content: center;
+    /* 수직 가운데 정렬 (필요하다면) */
+    min-height: 100vh;
+    /* 뷰포트 전체 높이 사용 */
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    /* 컨테이너 내 아이템들을 상단 정렬 */
+    margin-bottom: 20px;
+    /* gameInfo와의 간격 */
+}
+
+canvas {
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+#scoreboard {
+    width: 200px;
+    padding: 15px;
+    border: 2px solid #333;
+    background-color: #fff;
+    text-align: left;
+}
+
+#scoreboard h2 {
+    margin-top: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+#topScoresList {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+#topScoresList li {
+    margin-bottom: 5px;
+}
+
+#gameInfo {
+    text-align: center;
+}
+
+#resetButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    /* 기본적으로 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+#modalInputContainer {
+    margin: 20px 0;
+}
+
+#playerNameInput {
+    width: 80%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#playerNameInput:focus {
+    border-color: #28a745;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#modalActionBtn {
+    background: #28a745;
+    color: white;
+}
+
+#modalActionBtn:hover {
+    background: #218838;
+}
+
+#modalCloseBtn {
+    background: #6c757d;
+    color: white;
+}
+
+#modalCloseBtn:hover {
+    background: #5a6268;
+}
+
+.modal-buttons button:active {
+    transform: scale(0.95);
+}

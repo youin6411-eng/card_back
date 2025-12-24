@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 뒤집기 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>카드 뒤집기 게임</h1>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="500" height="500"></canvas>
+        <div id="scoreboard">
+            <h2>Top 5 점수</h2>
+            <ol id="topScoresList">
+                <li>점수를 불러오는 중...</li>
+            </ol>
+        </div>
+    </div>
+    <div id="gameInfo">
+        <p>점수: <span id="score">0</span> | 틀린 횟수: <span id="mistakes">0</span>/5</p>
+        <button id="resetButton">게임 다시 시작</button>
+    </div>
+
+    <!-- 커스텀 모달 (결과 알림 및 이름 입력) -->
+    <div id="gameModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modalTitle">게임 종료</h2>
+            <p id="modalMessage"></p>
+            <div id="modalInputContainer">
+                <input type="text" id="playerNameInput" placeholder="이름을 입력하세요" maxlength="10">
+            </div>
+            <div class="modal-buttons">
+                <button id="modalActionBtn">저장하기</button>
+                <button id="modalCloseBtn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
