@@ -1,28 +1,27 @@
-(function () {
-    // Canvas 요소 가져오기
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
+// Supabase 설정
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
-    // 게임 설정
-    const CARD_WIDTH = 100;
-    const CARD_HEIGHT = 100;
-    const CARD_MARGIN = 20;
-    const NUM_PAIRS = 8; // 8쌍의 카드 (4x4 = 16개)
-    const TOTAL_CARDS = NUM_PAIRS * 2;
+// Canvas 요소 가져오기
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
-    let cards = []; // 카드 객체들을 저장할 배열
-    let flippedCards = []; // 뒤집힌 카드들을 저장
-    let matchedCards = []; // 짝이 맞춰진 카드들을 저장
-    let canFlip = true; // 카드 뒤집기 가능 여부
-    let isGameOver = false; // 게임 종료 여부
-    let score = 0; // 점수
-    let mistakes = 0; // 오답 횟수
-    const MAX_MISTAKES = 5; // 최대 허용 오답 횟수
+// 게임 설정
+const CARD_WIDTH = 100;
+const CARD_HEIGHT = 100;
+const CARD_MARGIN = 20;
+const NUM_PAIRS = 8; // 8쌍의 카드 (4x4 = 16개)
+const TOTAL_CARDS = NUM_PAIRS * 2;
 
-    // Supabase 설정
-    import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+let cards = []; // 카드 객체들을 저장할 배열
+let flippedCards = []; // 뒤집힌 카드들을 저장
+let matchedCards = []; // 짝이 맞춰진 카드들을 저장
+let canFlip = true; // 카드 뒤집기 가능 여부
+let isGameOver = false; // 게임 종료 여부
+let score = 0; // 점수
+let mistakes = 0; // 오답 횟수
+const MAX_MISTAKES = 5; // 최대 허용 오답 횟수
 
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // 카드 이미지 (예시 - 실제 게임에서는 다양한 이미지를 사용)
     const cardImages = [
@@ -261,4 +260,3 @@
 
     // 게임 시작
     initGame();
-})();
