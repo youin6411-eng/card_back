@@ -20,8 +20,7 @@
     const MAX_MISTAKES = 5; // 최대 허용 오답 횟수
 
     // Supabase 설정
-    const SUPABASE_URL = 'https://ymvumzzwvwgdhaegaamj.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltdnVtenp3dndnZGhhZWdhYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY0ODM4NjYsImV4cCI6MjA4MjA1OTg2Nn0.QnfScxkbVPwmRpiKa8dZjfPBP4-QVQgKa58kIic-3dU';
+    import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
     const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
